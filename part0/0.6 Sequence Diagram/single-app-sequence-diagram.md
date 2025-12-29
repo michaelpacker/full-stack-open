@@ -26,4 +26,14 @@
     deactivate server
 
     Note right of browser: The browser executes the callback function that renders the notes
-```
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    active server
+    server-->>browser: the new note
+    deactivate server
+
+    Note right of browser: The user submits a new note
+
+    browser: [{ "content": "HTML is easy", "date": "2023-1-1" }, ... ]
+
+    Note right of browser: The browser executes the callback function that renders the notes, including the new note
