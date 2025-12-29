@@ -1,0 +1,6 @@
+# Ignore Mac Notes data folder
+~/Library/Group Containers/group.com.apple.notes/
+
+.DS_Store
+**/.DS_Store
+
