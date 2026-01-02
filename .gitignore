@@ -4,3 +4,5 @@
 .DS_Store
 **/.DS_Store
 
+# Ignore node_modules for exercise submission
+node_modules/
