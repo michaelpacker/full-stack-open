@@ -14,48 +14,45 @@ const Total = (props) => {
   )
 }
 
-const Content = () => {
-  // Using 'title' and 'quanity' to reduce confusion 
-  const parts = [
-    { title: 'Fundamentals of React', quantity: 10},
-    { title: 'Using props to pass data', quantity: 7},
-    { title: 'State of a component', quantity: 14},
-  ]
+const Part = (props) => {
   return (
-  // Return the array index, passing the values into props for the Part component
-    <div>
-      <Part name={parts[0].title} exercises={parts[0].quantity} />
-      <Part name={parts[1].title} exercises={parts[1].quantity} />
-      <Part name={parts[2].title} exercises={parts[2].quantity} />
-    </div>
+    <>
+      <p>{props.partname} {props.exerciseamt}</p>
+    </>
   )
 }
 
-const Total = (props) => {
-  // We should use the array here, too. Leaving it for now, since the exercise instructions do not call for adjusting the Total component.
+const Content = (props) => {
+
   return (
     <div>
-      <Part partname={props.part1} exercisesamt={props.exercises1} />
-      <Part partname={props.part2} exercisesamt={props.exercises2} />
-      <Part partname={props.part3} exercisesamt={props.exercises3} />
+      <Part partname={props.ref1.name} exerciseamt={props.ref1.exercises} />
+      <Part partname={props.ref2.name} exerciseamt={props.ref2.exercises} />
+      <Part partname={props.ref3.name} exerciseamt={props.ref3.exercises} />
     </div>
   )
 }
 
 const App = () => {
   const course = 'Half Stack application development'
-  const part1 = 'Fundamentals of React'
-  const exercises1 = 10
-  const part2 = 'Using props to pass data'
-  const exercises2 = 7
-  const part3 = 'State of a component'
-  const exercises3 = 14
+  const part1 = {
+    name: 'Fundamentals of React',
+    exercises: 10
+  }
+  const part2 = {
+    name: 'Using props to pass data',
+    exercises: 7
+  }
+  const part3 = {
+    name: 'State of a component',
+    exercises: 14
+  }
 
   return (
     <div>
       <Header course={course} />
-      <Content part1={part1} exercises1={exercises1} part2={part2} exercises2={exercises2} part3={part3} exercises3={exercises3} />
-      <Total total={exercises1 + exercises2 + exercises3} />
+      <Content ref1={part1} ref2={part2} ref3={part3}  /> 
+      <Total total={part1.exercises + part2.exercises + part3.exercises} />
     </div>
   )
 }
