@@ -14,15 +14,25 @@ const Total = (props) => {
   )
 }
 
-const Part = (props) => {
-  return  (
-    <p>{props.partname} {props.exercisesamt}</p>
+const Content = () => {
+  // Using 'title' and 'quanity' to reduce confusion 
+  const parts = [
+    { title: 'Fundamentals of React', quantity: 10},
+    { title: 'Using props to pass data', quantity: 7},
+    { title: 'State of a component', quantity: 14},
+  ]
+  return (
+  // Return the array index, passing the values into props for the Part component
+    <div>
+      <Part name={parts[0].title} exercises={parts[0].quantity} />
+      <Part name={parts[1].title} exercises={parts[1].quantity} />
+      <Part name={parts[2].title} exercises={parts[2].quantity} />
+    </div>
   )
 }
 
-
-const Content = (props) => {
-
+const Total = (props) => {
+  // We should use the array here, too. Leaving it for now, since the exercise instructions do not call for adjusting the Total component.
   return (
     <div>
       <Part partname={props.part1} exercisesamt={props.exercises1} />
